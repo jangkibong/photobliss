@@ -1,0 +1,341 @@
+%!Adobe-FontList 1.22
+%Locale:0x412
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:LeferiPoint-Special
+FamilyName:Leferi Point Type
+StyleName:Special
+FullName:Leferi Point Type Special
+MenuName:Leferi Point Type Special
+StyleBits:0
+FamilyNameNative:Leferi Point Type
+StyleNameNative:Special
+FullNameNative:Leferi Point Type Special
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\LeferiPointSpecial.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:5579624
+FileModTime:1607429640
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Leferi Point Type Special
+NameArray:0,Mac,4,Leferi Point Type Special
+NameArray:3,Mac,18,Leferi Point Type Special
+NameArray:0,Win,1,Leferi Point Type Special
+NameArray:0,Win,16,Leferi Point Type
+NameArray:3,Win,1,Leferi Point Type Special
+NameArray:3,Win,16,Leferi Point Type
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:LeferiPoint-SpecialItalic
+FamilyName:Leferi Point Type
+StyleName:Special Italic
+FullName:Leferi Point Type Special Italic
+MenuName:Leferi Point Type Special Italic
+StyleBits:0
+FamilyNameNative:Leferi Point Type
+StyleNameNative:Special Italic
+FullNameNative:Leferi Point Type Special Italic
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\LeferiPointSpecialItalic.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:5543036
+FileModTime:1607429640
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Leferi Point Type Special Italic
+NameArray:0,Mac,4,Leferi Point Type Special Italic
+NameArray:3,Mac,18,Leferi Point Type Special Italic
+NameArray:0,Win,1,Leferi Point Type Special Italic
+NameArray:0,Win,16,Leferi Point Type
+NameArray:3,Win,1,Leferi Point Type Special Italic
+NameArray:3,Win,16,Leferi Point Type
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:MaruBuri-Bold
+FamilyName:MaruBuri
+StyleName:Bold
+FullName:MaruBuri Bold
+MenuName:마루 부리 굵은
+StyleBits:0
+FamilyNameNative:마루 부리
+StyleNameNative:굵은
+FullNameNative:마루 부리 굵은
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\MaruBuri-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:8286724
+FileModTime:1687437030
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,MaruBuri Bold
+NameArray:3,Mac,4,마루 부리 굵은
+NameArray:3,Mac,18,마루 부리 굵은
+NameArray:0,Win,1,MaruBuri Bold
+NameArray:0,Win,16,MaruBuri
+NameArray:3,Win,1,마루 부리 굵은
+NameArray:3,Win,16,마루 부리
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:MaruBuri-ExtraLight
+FamilyName:MaruBuri
+StyleName:ExtraLight
+FullName:MaruBuri ExtraLight
+MenuName:마루 부리 아주가는
+StyleBits:0
+FamilyNameNative:마루 부리
+StyleNameNative:아주가는
+FullNameNative:마루 부리 아주가는
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\MaruBuri-ExtraLight.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:7771236
+FileModTime:1687437532
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,MaruBuri ExtraLight
+NameArray:3,Mac,4,마루 부리 아주가는
+NameArray:3,Mac,18,마루 부리 아주가는
+NameArray:0,Win,1,MaruBuri ExtraLight
+NameArray:0,Win,16,MaruBuri
+NameArray:3,Win,1,마루 부리 아주가는
+NameArray:3,Win,16,마루 부리
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:MaruBuri-Light
+FamilyName:MaruBuri
+StyleName:Light
+FullName:MaruBuri Light
+MenuName:마루 부리 가는
+StyleBits:0
+FamilyNameNative:마루 부리
+StyleNameNative:가는
+FullNameNative:마루 부리 가는
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\MaruBuri-Light.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:7877620
+FileModTime:1687437436
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,MaruBuri Light
+NameArray:3,Mac,4,마루 부리 가는
+NameArray:3,Mac,18,마루 부리 가는
+NameArray:0,Win,1,MaruBuri Light
+NameArray:0,Win,16,MaruBuri
+NameArray:3,Win,1,마루 부리 가는
+NameArray:3,Win,16,마루 부리
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:MaruBuri-Regular
+FamilyName:MaruBuri
+StyleName:Regular
+FullName:MaruBuri Regular
+MenuName:마루 부리 중간
+StyleBits:0
+FamilyNameNative:마루 부리
+StyleNameNative:중간
+FullNameNative:마루 부리 중간
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\MaruBuri-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:7985424
+FileModTime:1687437258
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,MaruBuri Regular
+NameArray:3,Mac,4,마루 부리 중간
+NameArray:3,Mac,18,마루 부리 중간
+NameArray:0,Win,1,MaruBuri Regular
+NameArray:0,Win,16,MaruBuri
+NameArray:3,Win,1,마루 부리 중간
+NameArray:3,Win,16,마루 부리
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:MaruBuri-SemiBold
+FamilyName:MaruBuri
+StyleName:SemiBold
+FullName:MaruBuri SemiBold
+MenuName:마루 부리 조금굵은
+StyleBits:0
+FamilyNameNative:마루 부리
+StyleNameNative:조금굵은
+FullNameNative:마루 부리 조금굵은
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\MaruBuri-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:8111880
+FileModTime:1687437160
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,MaruBuri SemiBold
+NameArray:3,Mac,4,마루 부리 조금굵은
+NameArray:3,Mac,18,마루 부리 조금굵은
+NameArray:0,Win,1,MaruBuri SemiBold
+NameArray:0,Win,16,MaruBuri
+NameArray:3,Win,1,마루 부리 조금굵은
+NameArray:3,Win,16,마루 부리
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NanumSquareB
+FamilyName:NanumSquare
+StyleName:Bold
+FullName:NanumSquare Bold
+MenuName:나눔스퀘어 Bold
+StyleBits:0
+FamilyNameNative:나눔스퀘어
+StyleNameNative:Bold
+FullNameNative:나눔스퀘어 Bold
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\NanumSquareB.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:733500
+FileModTime:1474445892
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,NanumSquare Bold
+NameArray:3,Mac,4,나눔스퀘어 Bold
+NameArray:0,Win,1,NanumSquare Bold
+NameArray:0,Win,16,NanumSquare
+NameArray:3,Win,1,나눔스퀘어 Bold
+NameArray:3,Win,16,나눔스퀘어
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NanumSquareEB
+FamilyName:NanumSquare
+StyleName:ExtraBold
+FullName:NanumSquare ExtraBold
+MenuName:나눔스퀘어 ExtraBold
+StyleBits:0
+FamilyNameNative:나눔스퀘어
+StyleNameNative:ExtraBold
+FullNameNative:나눔스퀘어 ExtraBold
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\NanumSquareEB.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:726684
+FileModTime:1474445892
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,NanumSquare ExtraBold
+NameArray:3,Mac,4,나눔스퀘어 ExtraBold
+NameArray:0,Win,1,NanumSquare ExtraBold
+NameArray:0,Win,16,NanumSquare
+NameArray:3,Win,1,나눔스퀘어 ExtraBold
+NameArray:3,Win,16,나눔스퀘어
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NanumSquareL
+FamilyName:NanumSquare
+StyleName:Light
+FullName:NanumSquare Light
+MenuName:나눔스퀘어 Light
+StyleBits:0
+FamilyNameNative:나눔스퀘어
+StyleNameNative:Light
+FullNameNative:나눔스퀘어 Light
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\NanumSquareL.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:750932
+FileModTime:1474445892
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,NanumSquare Light
+NameArray:3,Mac,4,나눔스퀘어 Light
+NameArray:0,Win,1,NanumSquare Light
+NameArray:0,Win,16,NanumSquare
+NameArray:3,Win,1,나눔스퀘어 Light
+NameArray:3,Win,16,나눔스퀘어
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NanumSquareR
+FamilyName:NanumSquare
+StyleName:Regular
+FullName:NanumSquare Regular
+MenuName:나눔스퀘어
+StyleBits:0
+FamilyNameNative:나눔스퀘어
+StyleNameNative:Regular
+FullNameNative:나눔스퀘어 Regular
+WritingScript:Korean
+OutlineFileName:D:\장기봉\photobliss\Font\NanumSquareR.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:723640
+FileModTime:1474445892
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,NanumSquare Regular
+NameArray:3,Mac,4,나눔스퀘어 Regular
+NameArray:3,Mac,18,나눔스퀘어
+NameArray:0,Win,1,NanumSquare
+NameArray:0,Win,16,NanumSquare
+NameArray:3,Win,1,나눔스퀘어
+NameArray:3,Win,16,나눔스퀘어
+%EndFont
+
