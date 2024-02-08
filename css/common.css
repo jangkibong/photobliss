@@ -71,6 +71,9 @@
     --bg-shoot-type-back: #666;
 
     --margin-base: 12px;
+
+    --font-logo: "Leferi Point special italic";
+    --font-catchphrase: "MaruBuri-Regular";
 }
 /* var - end */
 
@@ -151,7 +154,7 @@ table {
     background: #fff;
 }
 
-.wrap .logo{font-family: "Leferi Point special italic";}
+.wrap .logo{font-family: var(--font-logo);}
 .wrap .logo a{display: block;}
 .wrap .catchphrase{font-family: "MaruBuri-Regular";}
 

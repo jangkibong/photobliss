@@ -242,7 +242,7 @@
     background-color: #dbdbdb;
 }
 .wrap .shootihg_box.ratio_4x3 .camera{
-    width: calc((100vh - 40px) * (4 / 3));
+    width: calc((100vh - 40px) * (4 / 3.17));
     height: calc(100vh - 40px);
 }
 .wrap .shootihg_box.ratio_1x1 .camera{
@@ -250,7 +250,7 @@
     height: calc(100vh - 40px);
 }
 .wrap .shootihg_box.ratio_3x4 .camera{
-    width: calc((100vh - 40px) * (3 / 4));
+    width: calc((100vh - 40px) * (3.17 / 4));
     height: calc(100vh - 40px);
 }
 
@@ -295,3 +295,73 @@
 }
 
 /* step2_shooting - end */
+
+/* step3_shooting - start */
+.wrap .picture_seting{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto 0 40px;
+}
+.wrap .picture_seting .select_picture{
+    display: flex;
+    position: relative;
+    width: calc(85vh * (4 / 6));
+    height: 85vh;
+    background-color: var(--bg-shoot-type-front);
+    box-sizing: border-box;
+}
+.wrap .picture_seting .select_picture .select_set{
+    display: flex;
+    margin: auto auto 0;
+    flex: 1;
+}
+.wrap .picture_seting .select_picture .select_set h5.frame_logo{
+    position: absolute;
+    top: 2.5vh;
+    color: #fff;
+    margin-left: 2vh;
+    font-size: 2.5vh;
+    font-family: var(--font-logo);
+}
+.wrap .picture_seting .select_picture .select_set h5.frame_logo.second{
+    left: 50%;
+}
+
+.wrap .picture_seting .select_picture .select_set :is(.left, .right){
+    display: flex;
+    flex-direction: column;
+    margin: 0 2vh 2.5vh;
+    flex: 1;
+}
+.wrap .picture_seting .select_picture .select_set .left{
+}
+.wrap .picture_seting .select_picture .select_set .right{}
+.wrap .picture_seting .select_picture .select_set .right::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 85vh;
+    background-color: #fff;
+    opacity: 0.4;
+}
+.wrap .picture_seting .select_picture .select_set.wide{display: none;}
+.wrap .picture_seting .select_picture .select_set.wide .left{}
+.wrap .picture_seting .select_picture .select_set li{
+    overflow: hidden;
+    height: calc((85vh * (4 / 6) / 2) *(3.17 / 4) - 4vh);
+    text-indent: -9999px;
+    background-color: #ffffff;
+}
+.wrap .picture_seting .select_picture .select_set li:not(:first-child){
+    margin-top: 0.65vh;
+}
+
+.wrap .picture_seting .picture_preview{}
+.wrap .picture_seting .picture_preview h3{}
+.wrap .picture_seting .picture_preview .preview_set{}
+.wrap .picture_seting .picture_preview .preview_set li{}
+/* step3_shooting - end */

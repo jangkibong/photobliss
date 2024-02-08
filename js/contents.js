@@ -43,11 +43,11 @@ $(function(){
     box_preview.addClass("chance_" + shutter_chance); // 미리보기 갯수 설정
     // 미리보기 비율 설정
     if(picture_ratio == "4x3"){
-        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*1.333"});
+        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*(4 / 3.17)"});
     } else if(picture_ratio == "1x1"){
         box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*1"});
     } else if(picture_ratio == "3x4"){
-        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*0.75"});
+        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*(3.17 / 4)"});
     }
 
     // width: calc((100vh - 40px - var(--margin-base)) / 8 * 1.333);
