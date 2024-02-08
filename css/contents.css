@@ -1,0 +1,297 @@
+/* intro */
+.intro{position: relative; z-index: 2; top: -20px;}
+.intro::before,
+.intro::after {
+    content:"";
+    display: block;
+    position: fixed;
+    left: 50%;
+    width: 95vw;
+    height: 3px;
+    background-color: #fff;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.intro::before {top: 2%;}
+.intro::after {bottom: 2%;}
+.intro .circle{
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+.intro .circle:nth-child(1){
+    width: 546px;
+    height: 546px;
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-prime-light);
+    translate: -50% -50%;
+}
+.intro .circle:nth-child(2),
+.intro .circle:nth-child(3),
+.intro .circle:nth-child(4),
+.intro .circle:nth-child(5){
+    border: 2px solid var(--color-prime-light);
+    transform-origin: 45%;
+    animation: spin_hoop 5s infinite linear
+}
+.intro .circle:nth-child(6),
+.intro .circle:nth-child(7),
+.intro .circle:nth-child(8),
+.intro .circle:nth-child(9){
+    background-color: var(--color-prime-light);
+    transform-origin: 100%;
+    animation: spin_hoop 5s infinite linear
+}
+
+.intro .circle:nth-child(2){
+    top: -280px;
+    left: -174px;
+    width: 582px; height: 582px;
+    animation-duration: 10s;
+}
+.intro .circle:nth-child(3){
+    top: -264px;
+    right: -36px;
+    width: 270px; height: 270px;
+    animation-duration: 4s;
+    animation-direction: reverse;
+}
+.intro .circle:nth-child(4){
+    top: 232px;
+    left: 22px;
+    width: 143px; height: 143px;
+    animation-duration: 8s;
+}
+.intro .circle:nth-child(5){
+    bottom: -300px;
+    right: -190px;
+    width: 582px; height: 582px;
+    animation-duration: 15s;
+    animation-direction: reverse;
+}
+.intro .circle:nth-child(6){
+    top: 11px;
+    left: -127px;
+    width: 24px;
+    height: 24px;
+    animation-duration: 4s;
+}
+.intro .circle:nth-child(7){
+    top: -202px;
+    right: 168px;
+    width: 15px;
+    height: 15px;
+    animation-duration: 8s;
+}
+.intro .circle:nth-child(8){
+    top: 350px;
+    left: 74px;
+    width: 15px;
+    height: 15px;
+    animation-duration: 15s;
+    animation-direction: reverse;
+}
+.intro .circle:nth-child(9){
+    top: 152px;
+    right: -60px;
+    width: 38px;
+    height: 38px;
+    animation-duration: 10s;
+}
+
+.intro .catchphrase{
+    color: var(--color-point);
+    font-size: 32px;
+}
+.wrap .intro .logo{
+    position: static;
+    color: var(--color-logo-light);
+    font-weight: 400;
+    font-size: 130px;
+}
+/* intro - end */
+
+/* step1 shoot type */
+.wrap .container{
+    display: flex;
+    width: 96%;
+    height: 69%;
+    padding: 56px 0;
+    background-color: var(--color-prime-light);
+    border-radius: 28px;
+    box-sizing: border-box;
+}
+.wrap .container .shoot_type{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    flex: 1;
+}
+.wrap .container .shoot_type.basic{flex: 3;}
+.wrap .container .shoot_type.wide{flex: 2;}
+
+.wrap .container .shoot_type .tit{
+    font-weight: 800;
+}
+.wrap .container .shoot_type .tit h3{
+    font-size: 40px;
+}
+.wrap .container .shoot_type .tit p{
+    font-size: 24px;
+
+}
+.wrap .container .shoot_type .type_list{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    height: 78%;
+    padding: 0 56px;
+}
+
+.wrap .container .shoot_type:not(:first-child) .type_list::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #fff;
+}
+.wrap .container .shoot_type .type_list .type_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex: 1; */
+}
+.wrap .container .shoot_type .type_list .type_item:hover,
+.wrap .container .shoot_type .type_list .type_item.on{
+    scale: 110%;
+    transition: all 0.1s;
+}
+.wrap .container .shoot_type .type_list .type_item h4{
+    position: relative;
+    font-size: 30px;
+    font-weight: 800;
+}
+.wrap .container .shoot_type .type_list .type_item.on h4::after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: -25px;
+    top: -10px;
+    width: 15px;
+    height: 10px;
+    border: 4px solid var(--color-point);
+    border-width: 0 0 4px 4px;
+    transform: rotate(-45deg);
+}
+.wrap .container .shoot_type .type_list .type_item .photo_sample{
+    position: relative;
+    height: 80%;
+}
+.wrap .container .shoot_type .type_list .type_item .photo_sample img{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    height: 100%;
+    background-color: var(--bg-shoot-type-front);
+    translate: -70% -50%;
+    rotate: -5deg;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+    z-index: 1;
+}
+.wrap .container .shoot_type .type_list .type_item .photo_sample img:last-child{
+    translate: -50% -55%;
+    rotate: 0deg;
+}
+.wrap .container .shoot_type .type_list .type_item .photo_sample img:nth-child(2){
+    background-color: var(--bg-shoot-type-back);
+    translate: -30% -60%;
+    rotate: 5deg;
+    z-index: 0;
+}
+.wrap .container .shoot_type .type_list .type_item.on .photo_sample img{
+    background-color: var(--color-prime-deep);
+    transition: all 0.2s;
+}
+.wrap .container .shoot_type .type_list .type_item.on .photo_sample img:nth-child(2){
+    background-color: var(--color-prime);
+}
+/* step1 shoot type - end */
+
+/* step2_shooting - start */
+.wrap.shooting .logo{
+    left: -300px;
+    top: 50px;
+    rotate: -90deg;
+    translate: 0 0;
+    transform-origin: 100% 0;
+}
+.wrap .shootihg_box{
+    display: flex;
+
+}
+.wrap .shootihg_box .camera{
+    position: relative;
+    text-align: center;
+    background-color: #dbdbdb;
+}
+.wrap .shootihg_box.ratio_4x3 .camera{
+    width: calc((100vh - 40px) * (4 / 3));
+    height: calc(100vh - 40px);
+}
+.wrap .shootihg_box.ratio_1x1 .camera{
+    width: calc((100vh - 40px) * 1);
+    height: calc(100vh - 40px);
+}
+.wrap .shootihg_box.ratio_3x4 .camera{
+    width: calc((100vh - 40px) * (3 / 4));
+    height: calc(100vh - 40px);
+}
+
+.wrap .shootihg_box .camera .video{
+    width: 100%;
+    height: 100%;
+    background-color: #aaa;
+}
+
+.wrap .shootihg_box .camera .set_timer{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-weight: 800;
+    line-height: calc(100vh - 40px);
+    font-size: 300px;
+}
+
+.wrap .shootihg_box .picture{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--margin-base);
+}
+.wrap .shootihg_box .picture li{
+    overflow: hidden;
+    width: calc((100vh - 40px - var(--margin-base)) / 8 * 1.333);
+    height: calc();
+    text-align: center;
+    background-color: #dbdbdb;
+    flex: 1;
+}
+
+.wrap .shootihg_box .picture.chance_4 li:is(:nth-child(5),:nth-child(6),:nth-child(7),:nth-child(8)){
+    display: none;
+}
+.wrap .shootihg_box .picture.chance_6 li:is(:nth-child(7),:nth-child(8)){
+    display: none;
+}
+.wrap .shootihg_box .picture li:not(:first-child){
+    margin-top: var(--margin-base);
+}
+
+/* step2_shooting - end */
