@@ -299,7 +299,8 @@
 /* step3_shooting - start */
 .wrap .picture_seting{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: flex-end;
     width: 100%;
     margin: auto 0 40px;
 }
@@ -308,6 +309,7 @@
     position: relative;
     width: calc(85vh * (4 / 6));
     height: 85vh;
+    margin: 0 auto 0 15%;
     background-color: var(--bg-shoot-type-front);
     box-sizing: border-box;
 }
@@ -327,16 +329,17 @@
 .wrap .picture_seting .select_picture .select_set h5.frame_logo.second{
     left: 50%;
 }
-
+.wrap .picture_seting .select_picture .select_set.wide h5.frame_logo{
+    top: 4vh;
+    right: 0;
+    margin-right: 4vh;
+}
 .wrap .picture_seting .select_picture .select_set :is(.left, .right){
     display: flex;
     flex-direction: column;
     margin: 0 2vh 2.5vh;
     flex: 1;
 }
-.wrap .picture_seting .select_picture .select_set .left{
-}
-.wrap .picture_seting .select_picture .select_set .right{}
 .wrap .picture_seting .select_picture .select_set .right::before{
     content: "";
     display: block;
@@ -348,20 +351,48 @@
     background-color: #fff;
     opacity: 0.4;
 }
-.wrap .picture_seting .select_picture .select_set.wide{display: none;}
-.wrap .picture_seting .select_picture .select_set.wide .left{}
 .wrap .picture_seting .select_picture .select_set li{
     overflow: hidden;
     height: calc((85vh * (4 / 6) / 2) *(3.17 / 4) - 4vh);
+    width: calc((85vh * (4 / 6) / 2) - 4vh);
     text-indent: -9999px;
     background-color: #ffffff;
 }
 .wrap .picture_seting .select_picture .select_set li:not(:first-child){
     margin-top: 0.65vh;
 }
-
-.wrap .picture_seting .picture_preview{}
-.wrap .picture_seting .picture_preview h3{}
-.wrap .picture_seting .picture_preview .preview_set{}
-.wrap .picture_seting .picture_preview .preview_set li{}
+.wrap .picture_seting .select_picture .select_set.wide .left{
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3vh;
+}
+.wrap .picture_seting .select_picture .select_set.wide .left li{
+    height: calc((85vh * (4 / 6) / 2) - 4vh);
+    width: calc((85vh * (4 / 6) / 2) - 4vh);
+    margin: 1vh 1vh 0 0;
+}
+.wrap .picture_seting .select_picture .select_set.wide .left li:nth-child(even){
+    margin-right: 0;
+    translate: 0 0.8vh;
+}
+.wrap .picture_seting .select_picture .select_set.wide .left li:nth-child(n+3):nth-child(-n+4){
+    transform: translateX(-0.5vh);
+}
+.wrap .picture_seting .picture_preview{margin: 0 15% 0 auto;}
+.wrap .picture_seting .picture_preview h4{margin-bottom: 1vh; text-align: center;}
+.wrap .picture_seting .picture_preview .preview_set{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* height: 85vh; */
+    width: calc(85vh * (4 / 6) - 2vh);
+}
+.wrap .picture_seting .picture_preview .preview_set li{
+    height: calc((85vh * (4 / 6) / 2) *(3.17 / 4) - 2vh);
+    width: calc((85vh * (4 / 6) / 2) - 2vh);
+    margin-top: 1vh;
+    background-color: var(--bg-shoot-type-front);
+}
 /* step3_shooting - end */
