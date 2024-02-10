@@ -6,7 +6,8 @@ $(function(){
     const shutter_timer = $(".set_timer");
     const box_camera = $(".shootihg_box");
     const box_preview = $(".shootihg_box .picture");
-    const box_preview_item = $(".shootihg_box .picture li")
+    const box_preview_item = $(".shootihg_box .picture li");
+    const box_picture_setting = $(".picture_setting");
 
     let shoot_type = window.localStorage.getItem("shoot type"); // basic , wide
     let cut_count = window.localStorage.getItem("cut count"); // 4,3,2,6
@@ -17,6 +18,7 @@ $(function(){
     let shutter_status = false; //촬영중 : true, 촬영 정지 : false 
     
     let camera = $(".video");
+
     /* 촬영 타입 선택 */
     shoot_type_choose.on('click', function(){
         shoot_type_box.removeClass('on'); // 선택표시 취소
@@ -43,14 +45,15 @@ $(function(){
     box_preview.addClass("chance_" + shutter_chance); // 미리보기 갯수 설정
     // 미리보기 비율 설정
     if(picture_ratio == "4x3"){
-        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*(4 / 3.17)"});
+        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "* (4 / 3.17)"});
     } else if(picture_ratio == "1x1"){
-        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*1"});
+        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "* 1"});
     } else if(picture_ratio == "3x4"){
-        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "*(3.17 / 4)"});
+        box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "* (3 / 4)"});
     }
 
-    // width: calc((100vh - 40px - var(--margin-base)) / 8 * 1.333);
+    /* step3 화면에서 인쇄미리보기와 찍은사진 미리보기 셋팅 */
+    box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
 
     /* 촬영 시작 버튼 클릭 */
     btn_shutter.on('click', function(){
