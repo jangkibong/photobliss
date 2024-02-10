@@ -8,6 +8,14 @@ $(function(){
     const box_preview = $(".shootihg_box .picture");
     const box_preview_item = $(".shootihg_box .picture li");
     const box_picture_setting = $(".picture_setting");
+    const btn_frame_color = $(".btn.color");
+    const btn_frame_spacial = $(".btn.spacial");
+    const frame_chip_color = $(".frame_chips.frame_color");
+    const frame_chip_spacial = $(".frame_chips.frame_spacial");
+
+    const btn_frame_chip = $(".frame_chips button");
+    const box_print = $(".box_print");
+
 
     let shoot_type = window.localStorage.getItem("shoot type"); // basic , wide
     let cut_count = window.localStorage.getItem("cut count"); // 4,3,2,6
@@ -90,4 +98,21 @@ $(function(){
         let stream = navigator.mediaDevices.getUserMedia({video: true, audio:false});
         camera.srcOvject = stream;
     });
+
+    /* 프레임 선택 버튼 */
+    btn_frame_color.on('click', function(){
+        frame_chip_color.show();
+        frame_chip_spacial.addClass("hide");
+    });
+    btn_frame_spacial.on('click', function(){
+        frame_chip_spacial.removeClass("hide");
+        frame_chip_color.hide();
+        
+    });
+    /* 프레임 칩 버튼 */
+    btn_frame_chip.on('click', function(){
+        window.localStorage.setItem("frame color", $(this).attr("data-frame"));
+        box_print.removeClass().addClass("box_print " + window.localStorage.getItem("frame color"));
+    });
+
 });
