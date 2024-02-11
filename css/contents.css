@@ -544,7 +544,7 @@
 
 /* step_4 frame type - start */
 .wrap .box_custom.frame_set .box_btn{margin-bottom: 1vh; justify-content: center;}
-.wrap .box_custom.frame_set .box_btn .btn{width: calc(((85vh * var(--ratio_paper) - 15vh) / 2) - 2vh); padding: 18px 0;}
+.wrap .box_custom.frame_set .box_btn .btn{width: calc(((85vh * var(--ratio_paper) - 15vh) / 2) - 2vh);}
 .wrap .box_custom.frame_set .frame_chips{
     display: flex;
     flex-wrap: wrap;
@@ -579,4 +579,12 @@
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_6"]{background-color: var(--frame-color-6); color: #fff;}
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_7"]{background-color: var(--frame-color-7);}
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_8"]{background-color: var(--frame-color-8); color: #fff;}
-/* step_4 frame type - end *8
+/* step_4 frame type - end */
+
+/* step_5 print - start */
+/* .wrap .box_custom.set_pirnt{margin: auto;} */
+.wrap .box_custom.set_pirnt h2{text-align: center; margin-top: 0;}
+.wrap .set_pirnt .box_btn{align-items: center; justify-content: center; margin-top: 4vh;}
+.wrap .set_pirnt .box_btn .btn.save{margin-left: 0;}
+.wrap .set_pirnt .box_btn.set_count p{width: 25vh; font-weight: 600; font-size: 20vh; text-align: center;}
+/* step_5 print - end */

@@ -74,6 +74,7 @@
 
     --font-logo: "Leferi Point special italic";
     --font-catchphrase: "MaruBuri-Regular";
+    --size-btn: 7vh;
 }
 /* var - end */
 
@@ -186,10 +187,10 @@ table {
 .wrap p{font-size: 24px;}
 
 .wrap .btn{
-    font-size: 32px;
-    padding : 18px 44px;
+    font-size: calc(var(--size-btn) / 2.35);
+    padding : 0 calc(var(--size-btn) / 2);
     color: var(--color-base);
-    line-height: 1;
+    line-height: var(--size-btn);
     font-weight: 800;
     border: 2px solid var(--color-prime-deep);
     background-color: #fff;
@@ -199,18 +200,16 @@ table {
 .wrap .btn_ic{
     display: block;
     overflow: hidden;
-    width: 68px;
-    height: 68px;
+    width: var(--size-btn);
+    height: var(--size-btn);
     text-indent: -9999px;
-    border: 2px solid var(--color-prime-deep);
     background-color: #fff;
-    border-radius: 18px;
-    box-sizing: border-box;
-}
-.wrap .btn_ic{
     background-image: url(../images/icon.png);
     background-size: cover;
     background-position: 0 center;
+    border: 2px solid var(--color-prime-deep);
+    border-radius: 18px;
+    box-sizing: border-box;
 }
 .wrap .btn_ic.prev{
     background-position: 0 center;
@@ -219,7 +218,15 @@ table {
     background-position: 0 center;
     rotate: 180deg;
 }
-
+.wrap .btn_ic.home{
+    background-position-x: right;
+}
+.wrap .btn_ic.minus{
+    background-position-x: calc(33.33% * 1);
+}
+.wrap .btn_ic.plus{
+    background-position-x: calc(33.33% * 2);
+}
 .wrap .intro + .btn{
     position: absolute; bottom: 86px;
     z-index: 2;
@@ -227,7 +234,7 @@ table {
 
 .wrap :is(.btn, .btn_ic)[disabled]{
     background-color: var(--color-base-light);
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
 }
 
 .wrap .box_btn{display: flex;}
@@ -237,6 +244,6 @@ table {
     top: 20px;
     right: 40px;
 }
-.wrap .box_btn :is(a, input, button):not(:first-child){margin-left: var(--margin-base);}
+.wrap .box_btn :is(a, p, input, button):not(:first-child){margin-left: var(--margin-base);}
 .wrap .box_btn.vertical :is(a, input, button):not(:first-child){margin: var(--margin-base) 0 0 0; padding: 22px 0; line-height: 1.2;}
 /* common - end */

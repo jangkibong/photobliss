@@ -12,9 +12,12 @@ $(function(){
     const btn_frame_spacial = $(".btn.spacial");
     const frame_chip_color = $(".frame_chips.frame_color");
     const frame_chip_spacial = $(".frame_chips.frame_spacial");
-
     const btn_frame_chip = $(".frame_chips button");
     const box_print = $(".box_print");
+    const btn_print_minus = $(".set_count .btn_ic.minus");
+    const btn_print_plus = $(".set_count .btn_ic.plus");
+    const print_num = $(".set_count p");
+    const btn_pritn = $(".btn.print");
 
 
     let shoot_type = window.localStorage.getItem("shoot type"); // basic , wide
@@ -24,7 +27,8 @@ $(function(){
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
     let timer = shutter_timer.text(); // 기본 timer 10
     let shutter_status = false; //촬영중 : true, 촬영 정지 : false 
-    
+    let print_count = print_num.text();
+
     let camera = $(".video");
 
     /* 촬영 타입 선택 */
@@ -114,5 +118,27 @@ $(function(){
         window.localStorage.setItem("frame color", $(this).attr("data-frame"));
         box_print.removeClass().addClass("box_print " + window.localStorage.getItem("frame color"));
     });
+    
+    /* 인쇄매수 버튼 */
+    btn_print_minus.on('click', function(){
+        if(print_count > 0){
+            print_count --;
+            print_num.text(print_count);
+        }
+    });
+    btn_print_plus.on('click', function(){
+        print_count ++;
+        print_num.text(print_count);
+    });
 
+    /* 인쇄시작버튼 */
+    btn_pritn.on('click', function(){
+        if(print_count == 0){
+            alert("인쇄 매수를 추가해 주세요.")
+        }
+        setTimeout(function(){
+            btn_pritn.addClass('hide').siblings().removeClass('hide');
+        }, 3000);
+        
+    });
 });
