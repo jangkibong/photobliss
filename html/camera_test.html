@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카메라 웹페이지</title>
+<style>
+  video {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  #saved-photos {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .saved-photo {
+    max-width: 200px;
+    margin: 5px;
+  }
+</style>
+</head>
+<body>
+  <h1>카메라 웹페이지</h1>
+  <p id="resolution"></p>
+  <video id="video" autoplay></video>
+  <button id="capture-btn">사진 찍기</button>
+  <button id="switch-camera-btn">카메라 변경</button>
+  <div id="saved-photos"></div>
+  <canvas id="canvas" style="display: none;"></canvas>
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const captureBtn = document.getElementById('capture-btn');
+    const switchCameraBtn = document.getElementById('switch-camera-btn');
+    const resolutionElement = document.getElementById('resolution');
+    const savedPhotosContainer = document.getElementById('saved-photos');
+
+    let stream;
+    let currentDeviceIndex = 0;
+    let photoCount = 0;
+
+    // 카메라 스트림 가져오기
+    function getCameraStream() {
+      navigator.mediaDevices.enumerateDevices()
+        .then(function(devices) {
+          const videoDevices = devices.filter(device => device.kind === 'videoinput');
+          if (videoDevices.length > 1) {
+            switchCameraBtn.style.display = 'inline-block';
+          } else {
+            switchCameraBtn.style.display = 'none';
+          }
+          return navigator.mediaDevices.getUserMedia({ video: { deviceId: videoDevices[currentDeviceIndex].deviceId } });
+        })
+        .then(function(newStream) {
+          if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+          }
+          stream = newStream;
+          video.srcObject = stream;
+          const track = stream.getVideoTracks()[0];
+          const settings = track.getSettings();
+          resolutionElement.innerText = `해상도: ${settings.width}x${settings.height}`;
+        })
+        .catch(function(error) {
+          console.error('카메라를 사용할 수 없습니다.', error);
+        });
+    }
+
+    getCameraStream();
+
+    // 사진 찍기 버튼 클릭 시
+    captureBtn.addEventListener('click', function() {
+      if (photoCount < 8) {
+        // Canvas에 비디오 화면 그리기
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Canvas의 이미지를 Data URL로 변환하여 저장
+        const imgData = canvas.toDataURL('image/png');
+
+        // 이미지를 로컬 스토리지에 저장
+        localStorage.setItem(`capturedPhoto${photoCount}`, imgData);
+
+        // 저장된 이미지를 보여줌
+        const imgElement = document.createElement('img');
+        imgElement.src = imgData;
+        imgElement.classList.add('saved-photo');
+        savedPhotosContainer.appendChild(imgElement);
+
+        photoCount++;
+      }
+    });
+
+    // 카메라 변경 버튼 클릭 시
+    switchCameraBtn.addEventListener('click', function() {
+      currentDeviceIndex = (currentDeviceIndex + 1) % 2; // 2는 예시입니다. 실제로는 사용 가능한 카메라 수에 따라 달라집니다.
+      getCameraStream();
+    });
+
+    // 페이지 로드 시 이전에 저장된 사진을 모두 보여줌
+    window.addEventListener('load', function() {
+      for (let i = 0; i < photoCount; i++) {
+        const imgData = localStorage.getItem(`capturedPhoto${i}`);
+        if (imgData) {
+          const imgElement = document.createElement('img');
+          imgElement.src = imgData;
+          imgElement.classList.add('saved-photo');
+          savedPhotosContainer.appendChild(imgElement);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

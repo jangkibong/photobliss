@@ -8,15 +8,6 @@
     --margin_print_frame : 2vh;
 
     --box_rounding: 0.5vh;
-
-    --frame-color-1: #fff;
-    --frame-color-2: #adcbe1;
-    --frame-color-3: #B3B3B3;
-    --frame-color-4: #99382A;
-    --frame-color-5: #000000;
-    --frame-color-6: #32395A;
-    --frame-color-7: #ECC0C1;
-    --frame-color-8: #6F6A48;
 }
 /* intro */
 .intro{position: relative; z-index: 2; top: -20px;}
