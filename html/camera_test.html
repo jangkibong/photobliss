@@ -19,10 +19,15 @@
   #saved-photos {
     display: flex;
     flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
   }
   .saved-photo {
-    max-width: 200px;
+    width: 200px;
+    height: 150px;
     margin: 5px;
+    background-size: cover;
+    background-position: center;
   }
 </style>
 </head>
@@ -32,7 +37,7 @@
   <video id="video" autoplay></video>
   <button id="capture-btn">사진 찍기</button>
   <button id="switch-camera-btn">카메라 변경</button>
-  <div id="saved-photos"></div>
+  <ul id="saved-photos"></ul>
   <canvas id="canvas" style="display: none;"></canvas>
   <script>
     const video = document.getElementById('video');
@@ -90,10 +95,10 @@
         localStorage.setItem(`capturedPhoto${photoCount}`, imgData);
 
         // 저장된 이미지를 보여줌
-        const imgElement = document.createElement('img');
-        imgElement.src = imgData;
-        imgElement.classList.add('saved-photo');
-        savedPhotosContainer.appendChild(imgElement);
+        const liElement = document.createElement('li');
+        liElement.classList.add('saved-photo');
+        liElement.style.backgroundImage = `url(${imgData})`;
+        savedPhotosContainer.appendChild(liElement);
 
         photoCount++;
       }
@@ -110,10 +115,10 @@
       for (let i = 0; i < photoCount; i++) {
         const imgData = localStorage.getItem(`capturedPhoto${i}`);
         if (imgData) {
-          const imgElement = document.createElement('img');
-          imgElement.src = imgData;
-          imgElement.classList.add('saved-photo');
-          savedPhotosContainer.appendChild(imgElement);
+          const liElement = document.createElement('li');
+          liElement.classList.add('saved-photo');
+          liElement.style.backgroundImage = `url(${imgData})`;
+          savedPhotosContainer.appendChild(liElement);
         }
       }
     });

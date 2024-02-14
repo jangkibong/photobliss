@@ -68,40 +68,36 @@ $(function(){
     box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
 
     /* 촬영 시작 버튼 클릭 */
-    btn_shutter.on('click', function(){
-        if(!shutter_status){
-            shutter_status = true;
+    // btn_shutter.on('click', function(){
+    //     if(!shutter_status){
+    //         shutter_status = true;
 
-            $(".btn_ic.prev").attr('disabled', true).click(function(){return false;}); // "이전"버튼 비활성화
-            btn_shutter.attr('disabled', true); // "촬영시작"버튼 비활성화
-            console.log("남은 셔터 수", shutter_chance);
-            let reset_timer = timer;
-            /* 촬영 타이머 카운트다운 */
-            interval_count = setInterval(function(){
-                timer --;
-                shutter_timer.text(timer)
+    //         $(".btn_ic.prev").attr('disabled', true).click(function(){return false;}); // "이전"버튼 비활성화
+    //         btn_shutter.attr('disabled', true); // "촬영시작"버튼 비활성화
+    //         console.log("남은 셔터 수", shutter_chance);
+    //         let reset_timer = timer;
+    //         /* 촬영 타이머 카운트다운 */
+    //         interval_count = setInterval(function(){
+    //             timer --;
+    //             shutter_timer.text(timer)
                 
-                if(timer >= 0){
-                } else{
-                    shutter_timer.text(reset_timer);
-                    timer = shutter_timer.text();
-                    shuter_status = false;
-                    shutter_chance --;
-                    console.log("남은 셔터 수", shutter_chance);
+    //             if(timer >= 0){
+    //             } else{
+    //                 shutter_timer.text(reset_timer);
+    //                 timer = shutter_timer.text();
+    //                 shuter_status = false;
+    //                 shutter_chance --;
+    //                 console.log("남은 셔터 수", shutter_chance);
                     
-                    if(shutter_chance == 0){
-                        clearInterval(interval_count); // 남은 셔터수가 0되면 카운트다운 종료 
-                        $(".btn_ic.next").removeClass('hide'); // "다음"버튼 노출
-                    }
-                }
-            },1000);
+    //                 if(shutter_chance == 0){
+    //                     clearInterval(interval_count); // 남은 셔터수가 0되면 카운트다운 종료 
+    //                     $(".btn_ic.next").removeClass('hide'); // "다음"버튼 노출
+    //                 }
+    //             }
+    //         },1000);
             
-        }
-
-        /* 카메라 실행 */
-        let stream = navigator.mediaDevices.getUserMedia({video: true, audio:false});
-        camera.srcOvject = stream;
-    });
+    //     }
+    // });
 
     /* 프레임 선택 버튼 */
     btn_frame_color.on('click', function(){

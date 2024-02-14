@@ -16,26 +16,29 @@
         </h1>
         <div class="shootihg_box">
             <div class="camera">
-                <video class="video" autoplay muted ></video>
+                <video id="video" autoplay muted ></video>
                 <p class="set_timer">10</p>
+                <button type="button" class="btn camera_switch">카메라 전환</button>
+                <canvas id="canvas"></canvas>
             </div>
             <ul class="picture">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </div>
         <div class="box_btn vertical top_right">
             <a href="./step1_shoot_type.html" class="btn_ic prev">이전</a>
             <button type="button" class="btn shutter">촬<br>영<br>시<br>작</button>
-            <a href="./step3_picture_select.html" class="btn_ic next">다음</a>
+            <a href="./step3_picture_select.html" class="btn_ic next hide">다음</a>
             <br>
         </div>
     </div>
+    <script src="../js/camera.js"></script>
 </body>
 </html>
