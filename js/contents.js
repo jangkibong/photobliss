@@ -12,6 +12,10 @@ $(function(){
     const frame_chip_spacial = $(".frame_chips.frame_spacial");
     const btn_frame_chip = $(".frame_chips button");
     const box_print = $(".box_print");
+    const print_left_item = $(".box_print .print_set:not(.wide) .left li");
+    const print_right_item = $(".box_print .print_set:not(.wide) .right li");
+    const print_wide_item = $(".box_print .wide .left li");
+    const btn_picture_preview =$(".picture_preview .preview_set button");
     const btn_print_minus = $(".set_count .btn_ic.minus");
     const btn_print_plus = $(".set_count .btn_ic.plus");
     const print_num = $(".set_count p");
@@ -24,6 +28,7 @@ $(function(){
     let picture_preview_item = $(".preview_set li");
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
     let print_count = print_num.text();
+    let photo_index = 0;
 
     /* 촬영 타입 선택 */
     shoot_type_choose.on('click', function(){
@@ -60,10 +65,22 @@ $(function(){
 
     /* step3 화면에서 인쇄미리보기와 찍은사진 미리보기 셋팅 */
     box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
-
     for(let i = 0; i < 8; i++){
         picture_preview_item.eq(i).children("button").css({backgroundImage: "url(" + localStorage.getItem("photo_" + i) + ")"});
     }
+
+    /* 사진선택 기능 */
+    btn_picture_preview.on('click', function(){
+        if(photo_index < localStorage.getItem('cut count')){
+            
+            let select_photo = $(this).css("backgroundImage");
+            $(this).attr("data-photo-inex", photo_index)
+            print_left_item.eq(photo_index).css({backgroundImage: select_photo});
+            print_right_item.eq(photo_index).css({backgroundImage: select_photo});
+            print_wide_item.eq(photo_index).css({backgroundImage: select_photo});
+            photo_index ++;
+        }
+    });
     
     
     /* 프레임 선택 버튼 */
