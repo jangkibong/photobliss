@@ -2,8 +2,6 @@ $(function(){
     const shoot_type_choose = $("button.photo_sample");
     const shoot_type_box = $(".type_item");
     const btn_logo = $(".logo > a");
-    const btn_shutter = $(".btn.shutter");
-    const shutter_timer = $(".set_timer");
     const box_camera = $(".shootihg_box");
     const box_preview = $(".shootihg_box .picture");
     const box_preview_item = $(".shootihg_box .picture li");
@@ -18,18 +16,16 @@ $(function(){
     const btn_print_plus = $(".set_count .btn_ic.plus");
     const print_num = $(".set_count p");
     const btn_pritn = $(".btn.print");
-
-
+    
+    
     let shoot_type = window.localStorage.getItem("shoot type"); // basic , wide
     let cut_count = window.localStorage.getItem("cut count"); // 4,3,2,6
     let picture_ratio =window.localStorage.getItem("ratio"); // 1x1, 4x3, 3x4 
     let select_cut = $("." + shoot_type).find($('button.photo_sample[data-cut="'+ cut_count + '"]'));
+    let picture_preview_item = $(".preview_set li");
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
-    let timer = shutter_timer.text(); // 기본 timer 10
-    let shutter_status = false; //촬영중 : true, 촬영 정지 : false 
     let print_count = print_num.text();
 
-    let camera = $(".video");
 
     /* 촬영 타입 선택 */
     shoot_type_choose.on('click', function(){
@@ -67,38 +63,14 @@ $(function(){
     /* step3 화면에서 인쇄미리보기와 찍은사진 미리보기 셋팅 */
     box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
 
-    /* 촬영 시작 버튼 클릭 */
-    // btn_shutter.on('click', function(){
-    //     if(!shutter_status){
-    //         shutter_status = true;
-
-    //         $(".btn_ic.prev").attr('disabled', true).click(function(){return false;}); // "이전"버튼 비활성화
-    //         btn_shutter.attr('disabled', true); // "촬영시작"버튼 비활성화
-    //         console.log("남은 셔터 수", shutter_chance);
-    //         let reset_timer = timer;
-    //         /* 촬영 타이머 카운트다운 */
-    //         interval_count = setInterval(function(){
-    //             timer --;
-    //             shutter_timer.text(timer)
-                
-    //             if(timer >= 0){
-    //             } else{
-    //                 shutter_timer.text(reset_timer);
-    //                 timer = shutter_timer.text();
-    //                 shuter_status = false;
-    //                 shutter_chance --;
-    //                 console.log("남은 셔터 수", shutter_chance);
-                    
-    //                 if(shutter_chance == 0){
-    //                     clearInterval(interval_count); // 남은 셔터수가 0되면 카운트다운 종료 
-    //                     $(".btn_ic.next").removeClass('hide'); // "다음"버튼 노출
-    //                 }
-    //             }
-    //         },1000);
-            
-    //     }
-    // });
-
+    for(let i = 0; i < 8; i++){
+        // picture_preview_item[shutter_chance].css({backgroundImage: "url(" + localStorage.getItem("photo_" + i) + ");"})
+        let photo = localStorage.getItem("photo_" + i);
+        picture_preview_item.eq(i).children("button").css({backgroundImage: "url(" + photo + ")"});
+        console.log(i)
+    }
+    
+    
     /* 프레임 선택 버튼 */
     btn_frame_color.on('click', function(){
         frame_chip_color.show();
@@ -107,8 +79,8 @@ $(function(){
     btn_frame_spacial.on('click', function(){
         frame_chip_spacial.removeClass("hide");
         frame_chip_color.hide();
-        
     });
+
     /* 프레임 칩 버튼 */
     btn_frame_chip.on('click', function(){
         window.localStorage.setItem("frame color", $(this).attr("data-frame"));

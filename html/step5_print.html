@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/contents.css">
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/contents.js"></script>
-    <title>frame_type</title>
+    <title>print</title>
 </head>
 <body>
     <div class="wrap white">
@@ -64,5 +64,10 @@
             <a href="../index.html" class="btn_ic home">처음으로</a>
         </div>
     </div>
+    <script>
+        /* step4 화면에서 선택한 프레임 종류 적용*/
+        const box_print = $('.box_print')
+        box_print.addClass(localStorage.getItem("frame color"));
+    </script>
 </body>
 </html>

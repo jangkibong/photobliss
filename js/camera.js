@@ -8,44 +8,52 @@ $(function(){
     const box_preview_item = $(".shootihg_box .picture li");
 
     let stream;
-    let currentDeviceIndex = 0;
+    let currentDeviceIndex = 1;
     let photoCount = 0;
     let timer = shutter_timer.text(); // 기본 timer 10
     let shutter_status = false; //촬영중 : true, 촬영 정지 : false 
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
 
-// canvas.height = video.videoHeight
-
+    let videoDevices;
+    
     function getCameraStream(){
-        navigator.mediaDevices.enumerateDevices() // 현재 연결된 미디어 입/출력 장치 목록 반환
-        .then(function(devices){ 
-            const videoDevices = devices.filter(device => device.kind === 'videoinput'); //미디어장치 중 videoinupt 종류만 가져오기
-
-            // 연결된 카메라가 2개 이상일 때 카메라 전환 버튼 노출
+        navigator.mediaDevices.enumerateDevices()// 현재 연결된 미디어 입/출력 장치 목록 반환
+        .then(function(device){
+            videoDevices = device.filter(device => device.kind === "videoinput"); // 미디어장치 중 videoinupt 종류만 가져오기
+            console.log('연결된 카메라');
+            console.log(videoDevices);
+            // 연결된 카메라가 2개 이상일 때 카메라 전환 버튼 노출 
+            //** Intel Virtual Camera 등 가상 카메라가 존재하는 경우 달라질 수 있음
             if(videoDevices.length > 2){
                 btn_camera_swiching.style.display = 'block';
-            } else{
-                btn_camera_swiching.style.display = "none";
+            }else{
+                btn_camera_swiching.style.display = 'none';
             }
-
-            return navigator.mediaDevices.getUserMedia({video: {deviceId: videoDevices[currentDeviceIndex]}})
+            return navigator.mediaDevices.getUserMedia({video: {deviceId: videoDevices[currentDeviceIndex].deviceId}});
         })
         .then(function(newStream){
             if(stream){
                 stream.getTracks().forEach(track => track.stop());
             }
-
             stream = newStream;
             video.srcObject = stream;
             const track = stream.getVideoTracks()[0];
-
+            const settings = track.getSettings();
+            console.log("해상도: " + settings.width + " x " + settings.height);
         })
         .catch(function(error){
+            console.error('카메라 연결을 확인해주세요', error)
             alert('카메라 연결을 확인해주세요');
-            console.error('카메라를 사용할 수 없습니다.', error);
         });
     }
+    
     getCameraStream();
+    
+    btn_camera_swiching.addEventListener("click", function(){
+        currentDeviceIndex = (currentDeviceIndex + 1) % 2; // 2는 예시입니다. 실제로는 사용 가능한 카메라 수에 따라 달라집니다.
+        getCameraStream();
+    });
+// canvas
     /* 촬영 시작 버튼 클릭 */
     btn_shutter.on('click', function(){
         
