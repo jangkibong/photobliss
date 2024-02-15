@@ -28,19 +28,9 @@ $(function(){
     let picture_preview_item = $(".preview_set li");
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
     let print_count = print_num.text();
-    let photo_index = 0;
+    let print_index = 0;
+    
 
-    /* 촬영 타입 선택 */
-    shoot_type_choose.on('click', function(){
-        shoot_type_box.removeClass('on'); // 선택표시 취소
-        $(this).parents(".type_item").addClass('on'); //내가 선택한 촬영타입에 선택 표시
-        
-        // localStorage에 촬영 타입 저장
-        window.localStorage.setItem("shoot type", $(this).attr('data-shoot-type'));
-        window.localStorage.setItem("cut count", $(this).attr('data-cut'));
-        window.localStorage.setItem("shutter chance", $(this).attr("data-shutter-chance"));
-        window.localStorage.setItem("ratio", $(this).attr("data-ratio"));
-    });
 
     /* step1으로 돌아왔을 때 선택한 촬영타입 표시되도록 클릭 */
     select_cut.trigger('click');
@@ -65,23 +55,59 @@ $(function(){
 
     /* step3 화면에서 인쇄미리보기와 찍은사진 미리보기 셋팅 */
     box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
-    for(let i = 0; i < 8; i++){
+    for(let i = 0; i < shutter_chance; i++){
         picture_preview_item.eq(i).children("button").css({backgroundImage: "url(" + localStorage.getItem("photo_" + i) + ")"});
     }
 
+    /* step3 에서 선택한 사진 box_print에 셋팅 */
+    if($(".wrap").attr('data-step') >= 4){
+        for(let i = 0; i < cut_count; i++){
+            let photo_num = localStorage.getItem('photo_num_' + i)
+            print_left_item.eq(i).css({backgroundImage: 'url('+ localStorage.getItem('photo_' + photo_num) +')'})
+            print_right_item.eq(i).css({backgroundImage: 'url('+ localStorage.getItem('photo_' + photo_num) +')'})
+            print_wide_item.eq(i).css({backgroundImage: 'url('+ localStorage.getItem('photo_' + photo_num) +')'})
+        }
+    }
+
+    /* step4 화면에서 선택한 프레임 종류 적용*/
+    if($(".wrap").attr('data-step') >= 4){
+        box_print.addClass(localStorage.getItem("frame color"));
+    }
+
+    /* 촬영 타입 선택 */
+    shoot_type_choose.on('click', function(){
+        shoot_type_box.removeClass('on'); // 선택표시 취소
+        $(this).parents(".type_item").addClass('on'); //내가 선택한 촬영타입에 선택 표시
+        
+        // localStorage에 촬영 타입 저장
+        window.localStorage.setItem("shoot type", $(this).attr('data-shoot-type'));
+        window.localStorage.setItem("cut count", $(this).attr('data-cut'));
+        window.localStorage.setItem("shutter chance", $(this).attr("data-shutter-chance"));
+        window.localStorage.setItem("ratio", $(this).attr("data-ratio"));
+    });
+
     /* 사진선택 기능 */
     btn_picture_preview.on('click', function(){
-        if(photo_index < localStorage.getItem('cut count')){
-            
+        let print_set_index = Number($(this).parent().attr('data-print-index'));
+
+        if(print_index < cut_count && !$(this).parent().hasClass("on")){
+            $(this).text(print_index + 1).parent().addClass("on").attr('data-print-index', print_index);
             let select_photo = $(this).css("backgroundImage");
-            $(this).attr("data-photo-inex", photo_index)
-            print_left_item.eq(photo_index).css({backgroundImage: select_photo});
-            print_right_item.eq(photo_index).css({backgroundImage: select_photo});
-            print_wide_item.eq(photo_index).css({backgroundImage: select_photo});
-            photo_index ++;
+            print_left_item.eq(print_index).css({backgroundImage: select_photo});
+            print_right_item.eq(print_index).css({backgroundImage: select_photo});
+            print_wide_item.eq(print_index).css({backgroundImage: select_photo});
+
+            localStorage.setItem('photo_num_' + print_index, btn_picture_preview.index(this));
+            print_index ++; 
+            
+        } else if(print_set_index + 1 == print_index){ // 바로 전에 선택했던 사진 선택시 선택취소
+            $(this).parent().removeClass('on').attr('data-print-index', "");
+            print_index--;
+            print_left_item.eq(print_index).css({backgroundImage: ''});
+            print_right_item.eq(print_index).css({backgroundImage: ''});
+            print_wide_item.eq(print_index).css({backgroundImage: ''});
         }
     });
-    
     
     /* 프레임 선택 버튼 */
     btn_frame_color.on('click', function(){

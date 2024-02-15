@@ -8,7 +8,7 @@ $(function(){
     const box_preview_item = $(".shootihg_box .picture li");
     
     let stream;
-    let currentDeviceIndex = 0;
+    let currentDeviceIndex = 1;
     let photoCount = 0;
     let timer = shutter_timer.text(); // 기본 timer 10
     let shutter_status = false; //촬영중 : true, 촬영 정지 : false 
@@ -86,8 +86,8 @@ $(function(){
                     console.log("남은 셔터 수", shutter_chance); //남은 셔터 기회 콘솔창에 보여주기
                     
                     // Canvas에 비디오 화면 그리기
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
+                    canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+                    canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
                     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
                     
                     // Canvas의 이미지를 Data URL로 변환하여 저장
@@ -106,6 +106,8 @@ $(function(){
                     if(shutter_chance == 0){
                         clearInterval(interval_count); // 남은 셔터수가 0되면 카운트다운 종료 
                         $(".btn_ic.next").removeClass('hide'); // "다음"버튼 노출
+                        shutter_timer.text('');
+                        canvas.style.display = 'block';
                     }
                 }
             },1000);

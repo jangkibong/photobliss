@@ -32,5 +32,29 @@
         </div>
         <a href="./html/step1_shoot_type.html" class="btn">START</a>
     </div>
+    <script>
+        // 로컬 스토리지에서 모든 키-값 쌍을 가져오는 함수
+        function getAllLocalStorageItems() {
+            var items = {};
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                items[key] = localStorage.getItem(key);
+            }
+            return items;
+        }
+
+        // "current camera" 키를 제외하고 모든 다른 값을 삭제하는 함수
+        function removeLocalStorageItemsExceptCurrentCamera() {
+            var items = getAllLocalStorageItems();
+            for (var key in items) {
+                if (key !== "current camera") {
+                    localStorage.removeItem(key);
+                }
+            }
+        }
+
+        // "current camera" 키를 제외하고 모든 다른 값을 삭제
+        removeLocalStorageItemsExceptCurrentCamera();
+    </script>
 </body>
 </html>
