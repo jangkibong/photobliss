@@ -17,7 +17,6 @@ $(function(){
     const print_num = $(".set_count p");
     const btn_pritn = $(".btn.print");
     
-    
     let shoot_type = window.localStorage.getItem("shoot type"); // basic , wide
     let cut_count = window.localStorage.getItem("cut count"); // 4,3,2,6
     let picture_ratio =window.localStorage.getItem("ratio"); // 1x1, 4x3, 3x4 
@@ -25,7 +24,6 @@ $(function(){
     let picture_preview_item = $(".preview_set li");
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
     let print_count = print_num.text();
-
 
     /* 촬영 타입 선택 */
     shoot_type_choose.on('click', function(){
@@ -64,10 +62,7 @@ $(function(){
     box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
 
     for(let i = 0; i < 8; i++){
-        // picture_preview_item[shutter_chance].css({backgroundImage: "url(" + localStorage.getItem("photo_" + i) + ");"})
-        let photo = localStorage.getItem("photo_" + i);
-        picture_preview_item.eq(i).children("button").css({backgroundImage: "url(" + photo + ")"});
-        console.log(i)
+        picture_preview_item.eq(i).children("button").css({backgroundImage: "url(" + localStorage.getItem("photo_" + i) + ")"});
     }
     
     
