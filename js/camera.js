@@ -25,11 +25,11 @@ $(function(){
             console.log(videoDevices);
             localStorage.setItem("connecting video count", videoDevices.length); // 연결된 videoinput을 로컬스토리지에 저장
             // 연결된 카메라가 2개 이상일 때 카메라 전환 버튼 노출 
-            if(videoDevices.length > 1){
-                btn_camera_swiching.style.display = 'block';
-            }else{
-                btn_camera_swiching.style.display = 'none';
-            }
+            // if(videoDevices.length > 1){
+            //     btn_camera_swiching.style.display = 'block';
+            // }else{
+            //     btn_camera_swiching.style.display = 'none';
+            // }
             return navigator.mediaDevices.getUserMedia({video: {deviceId: videoDevices[currentDeviceIndex].deviceId}});
         })
         .then(function(newStream){
