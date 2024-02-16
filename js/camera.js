@@ -8,7 +8,7 @@ $(function(){
     const box_preview_item = $(".shootihg_box .picture li");
     
     let stream;
-    let currentDeviceIndex = 1;
+    let currentDeviceIndex = 0;
     let photoCount = 0;
     let timer = shutter_timer.text(); // 기본 timer 10
     let shutter_status = false; //촬영중 : true, 촬영 정지 : false 

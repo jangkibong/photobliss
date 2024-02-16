@@ -6,6 +6,7 @@ $(function(){
     const box_preview = $(".shootihg_box .picture");
     const box_preview_item = $(".shootihg_box .picture li");
     const box_picture_setting = $(".picture_setting");
+    const picture_preview_item = $(".preview_set li");
     const btn_frame_color = $(".btn.color");
     const btn_frame_spacial = $(".btn.spacial");
     const frame_chip_color = $(".frame_chips.frame_color");
@@ -25,12 +26,9 @@ $(function(){
     let cut_count = window.localStorage.getItem("cut count"); // 4,3,2,6
     let picture_ratio =window.localStorage.getItem("ratio"); // 1x1, 4x3, 3x4 
     let select_cut = $("." + shoot_type).find($('button.photo_sample[data-cut="'+ cut_count + '"]'));
-    let picture_preview_item = $(".preview_set li");
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
     let print_count = print_num.text();
     let print_index = 0;
-    
-
 
     /* step1으로 돌아왔을 때 선택한 촬영타입 표시되도록 클릭 */
     select_cut.trigger('click');
@@ -52,6 +50,10 @@ $(function(){
     } else if(picture_ratio == "3x4"){
         box_preview_item.css({width: "calc((100vh - 40px - var(--margin-base)) /" + shutter_chance + "* (3 / 4)"});
     }
+
+    // 미리보기 갯수 셋팅
+    box_preview_item.slice(shutter_chance).hide();
+    picture_preview_item.slice(shutter_chance).hide();
 
     /* step3 화면에서 인쇄미리보기와 찍은사진 미리보기 셋팅 */
     box_picture_setting.addClass("ratio_" + picture_ratio + " " + shoot_type);
