@@ -2,6 +2,7 @@
 $(function(){
     const video = document.getElementById('video');
     const btn_camera_swiching = document.querySelector(".btn.camera_switch");
+    const btn_camera_flip = document.querySelector(".btn.camera_flip");
     const shutter_timer = $(".set_timer");
     const btn_shutter = $(".btn.shutter");
     const canvas = document.getElementById('canvas');
@@ -13,6 +14,7 @@ $(function(){
     let timer = shutter_timer.text(); // 기본 timer 10
     let shutter_status = false; //촬영중 : true, 촬영 정지 : false 
     let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
+    let camera_flip_mode = true;
     
     // 선택한 카메라 유지
     currentDeviceIndex = localStorage.getItem("current camera");
@@ -48,8 +50,29 @@ $(function(){
         });
     }
     
+    // 카메라가 flip 모드일 때 비디오 화면 반전시키기
+    function flipCamera (){
+        if(camera_flip_mode == true){
+            video.style.transform = "scaleX(-1)"
+        } else{
+            video.style.transform = "scaleX(1)"
+        }
+    }
+
     getCameraStream();
-    
+    flipCamera();
+
+    btn_camera_flip.addEventListener('click', function(){
+        if(camera_flip_mode == true){
+            camera_flip_mode = false;
+        } else{
+            camera_flip_mode = true;
+        }
+        console.log(camera_flip_mode)
+        flipCamera();
+    });
+
+
     btn_camera_swiching.addEventListener("click", function(){
         let videoCount = localStorage.getItem("connecting video count"); // getCameraStream()에서 로컬스토리지에 저장한 카메라 수를 불러오기
         if(currentDeviceIndex < videoCount - 1){
@@ -86,9 +109,18 @@ $(function(){
                     console.log("남은 셔터 수", shutter_chance); //남은 셔터 기회 콘솔창에 보여주기
                     
                     // Canvas에 비디오 화면 그리기
-                    canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
-                    canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
-                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    if(camera_flip_mode == true){
+                        const canvasContext = canvas.getContext('2d');
+                        canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+                        canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+                        canvasContext.scale(-1, 1); // 이미지를 수평으로 반전시킵니다
+                        canvasContext.drawImage(video, 0, 0, -canvas.width, canvas.height);
+                    } else{
+                        canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+                        canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+                        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    }
+
                     
                     // Canvas의 이미지를 Data URL로 변환하여 저장
                     const imgData = canvas.toDataURL('image/png');

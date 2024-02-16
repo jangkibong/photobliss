@@ -274,7 +274,6 @@
     height: 100%;
     background-color: #aaa;
     translate: -50% -50%;
-    transform: scaleX(-1);
 }
 .wrap .shootihg_box .camera #canvas{
     display: none;
@@ -283,7 +282,6 @@
     top: 0;
     height: 100%;
     translate: -50%;
-    transform: scaleX(-1);
 }
 
 .wrap .shootihg_box .camera .set_timer{
@@ -297,11 +295,19 @@
     text-shadow: 0px 0px 30px #000;
     opacity: 0.6;
 }
-
-.wrap .shootihg_box .camera .btn.camera_switch{
+.wrap .shootihg_box .camera .box_btn{
     position: absolute;
     right: 2vh;
     top: 2vh;
+}
+.wrap .shootihg_box .camera .btn.camera_switch{
+    border: none;
+    background-color: #fff;
+    opacity: 0.6;
+}
+.wrap .shootihg_box .camera .btn.camera_flip{
+    right: 2vh;
+    top: 3vh;
     border: none;
     background-color: #fff;
     opacity: 0.6;
@@ -323,7 +329,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transform: scaleX(-1);
 }
 
 .wrap .shootihg_box .picture li:not(:first-child){
