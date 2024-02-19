@@ -7,6 +7,17 @@
     --height_ratio_3x4 : (4 / 3);
     --margin_print_frame : 2vh;
     --box_rounding: 0.5vh;
+    --box_print_height : 85vh;
+    --margin_picture_setting: auto 0 40px;
+    --margin_box_print:0 auto 0 15%;
+}
+@media print {
+    :root{
+        --box_print_height: 100vh;
+        --margin_picture_setting: 0;
+        --margin_box_print: auto 2px;
+    }
+    
 }
 /* intro */
 .intro{position: relative; z-index: 2; top: -20px;}
@@ -344,14 +355,14 @@
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    margin: auto 0 40px;
+    margin: var(--margin_picture_setting);
 }
 .wrap .picture_setting .box_print{
     display: flex;
     position: relative;
-    width: calc(85vh * var(--ratio_paper));
-    height: 85vh;
-    margin: 0 auto 0 15%;
+    width: calc(var(--box_print_height) * var(--ratio_paper));
+    height: var(--box_print_height);
+    margin: var(--margin_box_print);
     background-color: var(--bg-shoot-type-front);
     box-sizing: border-box;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
@@ -402,7 +413,7 @@
     top: 0;
     left: 50%;
     width: 1px;
-    height: 85vh;
+    height: var(--box_print_height);
     background-color: #fff;
     opacity: 0.4;
 }
@@ -412,8 +423,8 @@
 }
 .wrap .picture_setting .box_print .print_set li{
     overflow: hidden;
-    height: calc((85vh * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 4vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 4vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 4vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
     text-indent: -9999px;
     background-color: #e4e4e4;
     border-radius: var(--box_rounding);
@@ -429,8 +440,8 @@
     top: 3.5vh;
 }
 .wrap .picture_setting.ratio_1x1 .box_print .print_set li{
-    height: calc((85vh * var(--ratio_paper) / 2) - 4vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 4vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
 }
 .wrap .picture_setting.ratio_1x1:not(.wide) .box_print .print_set li:nth-child(4){
     display: none;
@@ -449,8 +460,8 @@
     margin-bottom: 4vh;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set li{
-    height: calc((85vh * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 4vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 4vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 4vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
     margin-top: 1.5vh;
 }
 .wrap .picture_setting.ratio_3x4:not(.wide) .box_print .print_set li:nth-child(n + 3){
@@ -472,8 +483,8 @@
 }
     /* wide type - ratio 1x1 */
 .wrap .picture_setting .box_print .print_set.wide .left li{
-    height: calc((85vh * var(--ratio_paper) / 2) - 4vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 4vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
     margin: 1vh 1vh 0 0;
 }
 .wrap .picture_setting:not(.ratio_3x4) .box_print .print_set.wide .left li:nth-child(even){
@@ -493,8 +504,8 @@
     margin-bottom: 3.6vh;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set.wide .left li{
-    height: calc((85vh * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 2.5vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 2.5vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 2.5vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 2.5vh);
     margin: 1vh 1vh 0 0;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set.wide .left li:nth-child(even){
@@ -514,14 +525,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex;
-    /* height: 85vh; */
-    width: calc(85vh * var(--ratio_paper));
+    /* height: var(--box_print_height); */
+    width: calc(var(--box_print_height) * var(--ratio_paper));
 }
     /* preview ratio 3x4 */
 .wrap .picture_setting .picture_preview .preview_set li{
     overflow: hidden;
-    height: calc((85vh * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 2vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 2vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 2vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 2vh);
     margin-top: 1vh;
     background-color: #000;
     text-indent: -9999px;
@@ -534,23 +545,23 @@
 }
     /* preview ratio 4x3 */
 .wrap .picture_setting.ratio_3x4 .picture_preview .preview_set li{
-    height: calc((85vh * var(--ratio_paper) / 2) * (4 / 3) - 2vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 2vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * (4 / 3) - 2vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 2vh);
 }
 .wrap .picture_setting.wide.ratio_3x4 .picture_preview .preview_set li{
-    height: calc(85vh / 3 - (2vh / 3));
-    width: calc((85vh / 3 * var(--width_ratio_3x4) - (2vh / 3)));
+    height: calc(var(--box_print_height) / 3 - (2vh / 3));
+    width: calc((var(--box_print_height) / 3 * var(--width_ratio_3x4) - (2vh / 3)));
 }
 
     /* preview ratio 1x1 */
 .wrap .picture_setting.ratio_1x1 .picture_preview .preview_set li{
-    height: calc((85vh * var(--ratio_paper) / 2) - 1.5vh);
-    width: calc((85vh * var(--ratio_paper) / 2) - 1.5vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 1.5vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 1.5vh);
     min-height: auto;
 }
 .wrap .picture_setting.wide.ratio_1x1 .picture_preview .preview_set li{
-    height: calc((85vh / 4) - (3vh / 4));
-    width: calc((85vh / 4) - (3vh / 4));
+    height: calc((var(--box_print_height) / 4) - (3vh / 4));
+    width: calc((var(--box_print_height) / 4) - (3vh / 4));
     min-height: auto;
 }
 
@@ -574,18 +585,18 @@
 
 /* step_4 frame type - start */
 .wrap .box_custom.frame_set .box_btn{margin-bottom: 1vh; justify-content: center;}
-.wrap .box_custom.frame_set .box_btn .btn{width: calc(((85vh * var(--ratio_paper) - 15vh) / 2) - 2vh);}
+.wrap .box_custom.frame_set .box_btn .btn{width: calc(((var(--box_print_height) * var(--ratio_paper) - 15vh) / 2) - 2vh);}
 .wrap .box_custom.frame_set .frame_chips{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    width: calc(85vh * var(--ratio_paper));
-    height: calc((85vh / 5) * 4 - 2vh);
+    width: calc(var(--box_print_height) * var(--ratio_paper));
+    height: calc((var(--box_print_height) / 5) * 4 - 2vh);
 }
 .wrap .box_custom.frame_set .frame_chips li{
-    width: calc(((85vh * var(--ratio_paper) - 15vh) / 2) - 2vh);
-    height: calc((85vh / 5) - 2vh);
+    width: calc(((var(--box_print_height) * var(--ratio_paper) - 15vh) / 2) - 2vh);
+    height: calc((var(--box_print_height) / 5) - 2vh);
     margin-top: 1vh;
 }
 .wrap .box_custom.frame_set .frame_chips li:nth-child(-n + 2){

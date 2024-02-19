@@ -22,21 +22,20 @@ $(function(){
     const print_num = $(".set_count p");
     const btn_pritn = $(".btn.print");
     
-    let shoot_type = window.localStorage.getItem("shoot type"); // basic , wide
-    let cut_count = window.localStorage.getItem("cut count"); // 4,3,2,6
-    let picture_ratio =window.localStorage.getItem("ratio"); // 1x1, 4x3, 3x4 
+    let shoot_type = localStorage.getItem("shoot type"); // basic , wide
+    let cut_count = localStorage.getItem("cut count"); // 4,3,2,6
+    let picture_ratio = localStorage.getItem("ratio"); // 1x1, 4x3, 3x4 
     let select_cut = $("." + shoot_type).find($('button.photo_sample[data-cut="'+ cut_count + '"]'));
-    let shutter_chance = window.localStorage.getItem("shutter chance"); // 8, 6, 4
+    let shutter_chance = localStorage.getItem("shutter chance"); // 8, 6, 4
     let print_count = print_num.text();
     let print_index = 0;
 
-    /* step1으로 돌아왔을 때 선택한 촬영타입 표시되도록 클릭 */
-    select_cut.trigger('click');
+    
 
     /* 홈으로 갈 때 촬영타입 다시 세팅 */
     btn_logo.on('click', function(){
-        window.localStorage.setItem("shoot type", "basic");
-        window.localStorage.setItem("cut count", "4");
+        localStorage.setItem("shoot type", "basic");
+        localStorage.setItem("cut count", "4");
     });
 
     /* step2 화면에서 촬영가능 횟수(shutter_chance)에 따른 미리보기 갯수 & 비율 셋팅 */
@@ -87,6 +86,9 @@ $(function(){
         window.localStorage.setItem("shutter chance", $(this).attr("data-shutter-chance"));
         window.localStorage.setItem("ratio", $(this).attr("data-ratio"));
     });
+
+    /* step1으로 돌아왔을 때 선택한 촬영타입 표시되도록 클릭 */
+    select_cut.trigger('click');
 
     /* 사진선택 기능 */
     btn_picture_preview.on('click', function(){
@@ -141,12 +143,28 @@ $(function(){
 
     /* 인쇄시작버튼 */
     btn_pritn.on('click', function(){
+        let print_options = {
+            silent: false, // 프린트 다이얼로그를 보이지 않도록 함
+            printBackground: true, // 배경 색상과 이미지를 인쇄에 포함 
+            deviceName: 'canon SELPHY CP1500', // 프린터 장치 이름 (기본값은 빈 문자열)
+            color: true, // 컬러 프린트 여부
+            marginsType: 2, // 마진 타입 (0: 기본값, 1: 최소, 2: 없음)
+            scaleFactor: 1, // 스케일 팩터 (1: 기본값)
+            pagesPerSheet: 3, // 한 용지에 들어갈 페이지 갯수
+            collate: false, // 페이지 정렬 여부
+            copies: print_count, // 복사 수
+            duplex: false, // 양면 프린트 여부
+            header: '', // 페이지 헤더
+            footer: '', // 페이지 푸터
+            preview: false // 프린트 미리보기 여부
+        }
+
         if(print_count == 0){
             alert("인쇄 매수를 추가해 주세요.")
         }
+        window.print(print_options);
         setTimeout(function(){
             btn_pritn.addClass('hide').siblings().removeClass('hide');
         }, 3000);
-        
     });
 });

@@ -46,6 +46,11 @@
 }
 /* animation - end */
 
+@page {
+    size: 4in 6in; /* A0 ~ A5, Legal, Letter, Tabloid, custom(가로 세로)**(단위 mm, cm, in(인치) 등) */
+    bleed: 5mm; /* 문서의 프린트 영역을 벗어나는 이미지나 색상이 나타나는 부분을 설정 */
+}
+
 /* var */
 :root{
     --color-prime: #ffaeca;
