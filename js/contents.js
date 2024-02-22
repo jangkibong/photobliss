@@ -160,11 +160,11 @@ $(function(){
         }
 
         if(print_count == 0){
-            alert("인쇄 매수를 추가해 주세요.")
+            alert("인쇄 매수를 추가해 주세요.");
         }
         window.print(print_options);
         setTimeout(function(){
             btn_pritn.addClass('hide').siblings().removeClass('hide');
-        }, 3000);
+        }, 0);
     });
 });

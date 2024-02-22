@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="../css/contents.css">
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/contents.js"></script>
+    <script src="../js/html2canvas.js"></script>
+    <style>
+        .img_preview{
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            translate: 0 -50%;
+            background-color: rgba(100, 100, 200, 0.5);
+            /* width: calc(85vh * (4 / 6));
+            height: 85vh; */
+            z-index: 100;
+        }
+    </style>
     <title>print</title>
 </head>
 <body>
@@ -63,6 +76,30 @@
             <a href="./step4_frame_type.html" class="btn_ic prev">다음</a>
             <a href="../index.html" class="btn_ic home">처음으로</a>
         </div>
+        <div class="img_preview"></div>
     </div>
+    <script>
+        const btn_save = document.querySelector(".btn.save");
+
+        btn_save.addEventListener('click', function(){
+            // html2canvas(document.querySelector(".box_print")).then(function(canvas){
+            //     // canvas에 대한 작업 수행
+            //     const img_preview = document.querySelector('.img_previe');
+            //     const a = document.createElement('a');
+
+            //     img_preview.innerHTML = '';
+            //     img_preview.appendChild(canvas);
+            //     // a.href = canvas.toDataURL("image/png");
+            //     // a.download = 'content.png';
+            //     // a.click();
+            // })
+            html2canvas(document.querySelector('.box_print')).then(function(canvas) {
+                const img_preview = document.querySelector('.img_preview');
+                img_preview.innerHTML = '';
+                img_preview.appendChild(canvas);
+                // document.getElementById('saveBtn').style.display = 'block';
+    });
+        });
+    </script>
 </body>
 </html>
