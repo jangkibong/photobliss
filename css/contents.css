@@ -366,6 +366,7 @@
     background-color: var(--bg-shoot-type-front);
     box-sizing: border-box;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    flex: none;
 }
 .wrap .picture_setting .box_print .print_set{
     display: flex;
